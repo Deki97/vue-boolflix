@@ -1,5 +1,4 @@
 <template>
-    <main>
         <div class="single-card">
             <div class="title">
                 {{ objectCard.title }}
@@ -17,21 +16,17 @@
                 {{ objectCard.vote_average }}
             </div>
         </div>
-    </main>
 </template>
 
 
 <script>
 
 export default {
-    name: 'Main',
-    data: function() {
-        return {
-            props: {
-                objectCard: Object
-            }
-        }
+    name: 'SingleCard',
+    props: {
+        objectCard: Object
     }
+
 }
 </script>
 
