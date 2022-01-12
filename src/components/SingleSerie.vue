@@ -25,7 +25,7 @@
             </div>
 
             <div class="vote-average">
-                Voto: {{ objectSerie.vote_average }}
+                Voto: {{ Math.ceil(objectSerie.vote_average / 2) }}
             </div>
         </div>
 </template>

@@ -25,7 +25,7 @@
             </div>
 
             <div class="vote-average">
-                Voto: {{ objectMovie.vote_average }}
+                Voto: {{ Math.ceil(objectMovie.vote_average / 2) }}
             </div>
         </div>
 </template>
