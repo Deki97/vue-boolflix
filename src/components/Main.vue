@@ -30,5 +30,9 @@ export default {
 
 
 <style lang="scss" scoped>
-
+main {
+    h2 {
+        margin-left: 10px;
+    }
+}
 </style>
