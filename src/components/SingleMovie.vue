@@ -1,19 +1,19 @@
 <template>
-        <div class="single-card">
+        <div class="single-movie">
             <div class="title">
-                {{ objectCard.title }}
+                {{ objectMovie.title }}
             </div>
 
             <div class="original-title">
-                {{ objectCard.original_title }}
+                {{ objectMovie.original_title }}
             </div>
 
             <div class="original-language">
-                {{ objectCard.original_language }}
+                {{ objectMovie.original_language }}
             </div>
 
             <div class="vote-average">
-                {{ objectCard.vote_average }}
+                {{ objectMovie.vote_average }}
             </div>
         </div>
 </template>
@@ -22,9 +22,9 @@
 <script>
 
 export default {
-    name: 'SingleCard',
+    name: 'SingleMovie',
     props: {
-        objectCard: Object
+        objectMovie: Object
     }
 
 }
@@ -32,5 +32,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.single-movie {
+    margin: 30px 10px;
+}
 </style>

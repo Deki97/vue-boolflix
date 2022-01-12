@@ -1,7 +1,7 @@
 <template>
     <header>
         <input v-model="userSearch" type="text" placeholder="Cerca un film...">
-        <button @click="$emit('filterMovies', userSearch)">Cerca</button>
+        <button @click="$emit('filterApi', userSearch)">Cerca</button>
     </header>
 </template>
 

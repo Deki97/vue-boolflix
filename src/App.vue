@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header @filterMovies="filterApi" />
+    <Header @filterApi="searchApi" />
 
-    <SingleCard v-for="(item, index) in arrayFiltered" :key="index" :objectCard="item" />
+    <Main :moviesArray="moviesArrayFiltered" :seriesArray="seriesArrayFiltered"/>
 
   </div>
 </template>
@@ -10,31 +10,51 @@
 <script>
 import axios from 'axios';
 import Header from './components/Header.vue';
-import SingleCard from './components/SingleCard.vue';
+import Main from './components/Main.vue';
 
 export default {
   name: "App",
   components: {
     Header,
-    SingleCard
+    Main
   },
   data: function() {
     return {
-      arrayFiltered: []
-    }
+      moviesArrayFiltered: [],
+      seriesArrayFiltered: [],
+      queryText: '',
+      api_key: 'e60cf25f0e89f321c0a6aab650e9fb5e'
+    };
   },
   methods: {
-    filterApi: function(query) {
+    searchApi: function(userText) {
+      this.queryText = userText;
+      this.searchMovies();
+      this.searchSeries();
+    },
+    searchMovies: function() {
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
-          api_key: 'e60cf25f0e89f321c0a6aab650e9fb5e',
-          query,
+          api_key: this.api_key,
+          query: this.queryText,
           language: 'it-IT'
         }
       })
       .then((response) => {
-        this.arrayFiltered = response.data.results;
+        this.moviesArrayFiltered = response.data.results;
       });
+    },
+    searchSeries: function() {
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: {
+          api_key: this.api_key,
+          query: this.queryText,
+          language: 'it-IT'
+        }
+      })
+      .then((response) => {
+        this.seriesArrayFiltered = response.data.results;
+      })
     }
   }
 };
