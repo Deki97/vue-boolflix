@@ -1,5 +1,9 @@
 <template>
         <div class="single-serie">
+            <div class="poster">
+                <img :src="this.defaultPath + objectSerie.poster_path"  :alt="objectSerie.name">
+            </div>
+
             <div class="title">
                 Titolo: {{ objectSerie.name }}
             </div>
@@ -31,6 +35,11 @@
 
 export default {
     name: 'SingleSerie',
+    data: function() {
+        return {
+            defaultPath: 'https://image.tmdb.org/t/p/w342'
+        }
+    },
     props: {
         objectSerie: Object
     }

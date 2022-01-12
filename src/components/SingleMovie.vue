@@ -1,5 +1,9 @@
 <template>
         <div class="single-movie">
+            <div class="poster">
+                <img :src="this.defaultPath + objectMovie.poster_path"  :alt="objectMovie.name">
+            </div>
+
             <div class="title">
                 Titolo: {{ objectMovie.title }}
             </div>
@@ -31,6 +35,11 @@
 
 export default {
     name: 'SingleMovie',
+    data: function() {
+        return {
+            defaultPath: 'https://image.tmdb.org/t/p/w342'
+        }
+    },
     props: {
         objectMovie: Object
     }
