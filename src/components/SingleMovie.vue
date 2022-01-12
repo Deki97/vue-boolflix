@@ -1,19 +1,27 @@
 <template>
         <div class="single-movie">
             <div class="title">
-                {{ objectMovie.title }}
+                Titolo: {{ objectMovie.title }}
             </div>
 
             <div class="original-title">
-                {{ objectMovie.original_title }}
+                Titolo Originale: {{ objectMovie.original_title }}
             </div>
 
             <div class="original-language">
-                {{ objectMovie.original_language }}
+                <!-- {{ objectMovie.original_language }} -->
+                Lingua: 
+                <span v-if="(objectMovie.original_language === 'en') || (objectMovie.original_language === 'it') || (objectMovie.original_language === 'fr')">
+                    <img :src="require('../assets/img/' +  objectMovie.original_language + '.png')" :alt="objectMovie.original_language">
+                </span>
+
+                <span v-else>
+                    {{ objectMovie.original_language }}
+                </span>
             </div>
 
             <div class="vote-average">
-                {{ objectMovie.vote_average }}
+                Voto: {{ objectMovie.vote_average }}
             </div>
         </div>
 </template>
@@ -34,5 +42,11 @@ export default {
 <style lang="scss" scoped>
 .single-movie {
     margin: 30px 10px;
+
+    .original-language {
+        img {
+            width: 20px;
+        }
+    }
 }
 </style>

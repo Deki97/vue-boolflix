@@ -1,19 +1,27 @@
 <template>
         <div class="single-serie">
             <div class="title">
-                {{ objectSerie.name }}
+                Titolo: {{ objectSerie.name }}
             </div>
 
             <div class="original-title">
-                {{ objectSerie.original_name }}
+                Titolo Originale: {{ objectSerie.original_name }}
             </div>
 
             <div class="original-language">
-                {{ objectSerie.original_language }}
+                <!-- {{ objectSerie.original_language }} -->
+                Lingua: 
+                <span v-if="(objectSerie.original_language === 'en') || (objectSerie.original_language === 'it') || (objectSerie.original_language === 'fr')">
+                    <img :src="require('../assets/img/' +  objectSerie.original_language + '.png')" :alt="objectSerie.original_language">
+                </span>
+
+                <span v-else>
+                    {{ objectSerie.original_language }}
+                </span>
             </div>
 
             <div class="vote-average">
-                {{ objectSerie.vote_average }}
+                Voto: {{ objectSerie.vote_average }}
             </div>
         </div>
 </template>
@@ -34,5 +42,11 @@ export default {
 <style lang="scss" scoped>
 .single-serie {
     margin: 30px 10px;
+
+    .original-language {
+        img {
+            width: 20px;
+        }
+    }
 }
 </style>
