@@ -33,6 +33,10 @@
                         {{ voteCeiled }}
                     </span>
                 </div>
+
+                <div class="overview">
+                    Overview: {{ objectSerie.overview }}
+                </div>
             </div>
         </div>
 </template>
@@ -58,11 +62,40 @@ export default {
 <style lang="scss" scoped>
 .single-serie {
     margin: 30px 10px;
+    border: 2px solid white;
+    height: 507px;
+    width: 342px;
+    cursor: pointer;
+    flex-shrink: 0;
 
-    .original-language {
-        img {
-            width: 20px;
+    .card-poster {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .card-info {
+        display: none;
+        height: 100%;
+        width: 100%;
+        color: white;
+        background-color: black;
+        padding: 20px 10px;
+        overflow: hidden;
+
+        .original-language {
+            img {
+                width: 20px;
+            }
         }
+    }
+    
+    &:hover .card-poster{
+        display: none;
+    }
+
+    &:hover .card-info {
+        display: block;
     }
 }
 </style>

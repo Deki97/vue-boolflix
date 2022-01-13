@@ -66,6 +66,7 @@ export default {
     height: 507px;
     width: 342px;
     cursor: pointer;
+    flex-shrink: 0;
 
     .card-poster {
         height: 100%;
@@ -79,7 +80,8 @@ export default {
         width: 100%;
         color: white;
         background-color: black;
-        padding: 20px 10px 0;
+        padding: 20px 10px;
+        overflow: hidden;
 
         .original-language {
             img {
