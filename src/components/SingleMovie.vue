@@ -51,8 +51,8 @@
                     <span class="bold">
                         Voto: 
                     </span>
-                    <span>
-                        {{ voteCeiled }}
+                    <span v-for="(n, index) in 5" :key="index">
+                        <i class="far fa-star"></i>
                     </span>
                 </div>
 
