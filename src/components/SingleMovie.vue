@@ -4,7 +4,7 @@
                 <div v-if="objectMovie.poster_path" class="poster">
                     <img :src="this.defaultPath + objectMovie.poster_path"  :alt="objectMovie.name">
                 </div>
-                <div v-else>
+                <div v-else class="no-image">
                     Nessuna immagine disponibile
                 </div>
             </div>
@@ -108,6 +108,13 @@ export default {
         height: 100%;
         width: 100%;
         overflow: hidden;
+
+        .no-image {
+            position: relative;
+            text-align: center;
+            top: 50%;
+            color: white;
+        }
     }
 
     .card-info {
