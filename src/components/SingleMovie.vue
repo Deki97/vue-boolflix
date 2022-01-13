@@ -1,8 +1,11 @@
 <template>
         <div class="single-movie">
             <div class="card-poster">
-                <div class="poster">
+                <div v-if="objectMovie.poster_path" class="poster">
                     <img :src="this.defaultPath + objectMovie.poster_path"  :alt="objectMovie.name">
+                </div>
+                <div v-else>
+                    Nessuna immagine disponibile
                 </div>
             </div>
 
