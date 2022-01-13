@@ -9,7 +9,7 @@
 
             <h2>Serie TV</h2>
             <div class="series">
-                <SingleSerie v-for="(serie, index) in seriesArray" :key="index" :objectSerie="serie" />
+                <SingleMovie v-for="(serie, index) in seriesArray" :key="index" :objectMovie="serie" />
             </div>
         </div>
     </main>
@@ -18,14 +18,12 @@
 
 <script>
 import SingleMovie from './SingleMovie.vue';
-import SingleSerie from './SingleSerie.vue';
 
 
 export default {
     name: 'Main',
     components: {
-        SingleMovie,
-        SingleSerie
+        SingleMovie
     },
     props: {
         moviesArray: Array,
@@ -38,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 main {
     background-color: #383838;
+    padding: 50px 0;
 
     .container {
 

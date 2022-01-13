@@ -7,17 +7,37 @@
             </div>
 
             <div class="card-info">
-                <div class="title">
-                    Titolo: {{ objectMovie.title }}
+                <div v-if="objectMovie.title" class="title">
+                    <span class="bold">
+                        Titolo:
+                    </span> 
+                    {{ objectMovie.title }}
+                </div>
+                <div v-else>
+                    <span class="bold">
+                        Titolo:
+                    </span> 
+                    {{ objectMovie.name }}
                 </div>
 
-                <div class="original-title">
-                    Titolo Originale: {{ objectMovie.original_title }}
+                <div v-if="objectMovie.original_title" class="original-title">
+                    <span class="bold">
+                        Titolo Originale:
+                    </span>
+                    {{ objectMovie.original_title }}
+                </div>
+                <div v-else>
+                    <span class="bold">
+                        Titolo Originale:
+                    </span>
+                    {{ objectMovie.original_name }}
                 </div>
 
                 <div class="original-language">
                     <!-- {{ objectMovie.original_language }} -->
-                    Lingua: 
+                    <span class="bold">
+                        Lingua:
+                    </span> 
                     <span v-if="(objectMovie.original_language === 'en') || (objectMovie.original_language === 'it') || (objectMovie.original_language === 'fr')">
                         <img :src="require('../assets/img/' +  objectMovie.original_language + '.png')" :alt="objectMovie.original_language">
                     </span>
@@ -28,14 +48,19 @@
                 </div>
 
                 <div class="vote-average">
-                    Voto: 
+                    <span class="bold">
+                        Voto: 
+                    </span>
                     <span>
                         {{ voteCeiled }}
                     </span>
                 </div>
 
                 <div class="overview">
-                    Overview: {{ objectMovie.overview }}
+                    <span class="bold">
+                        Overview:
+                    </span>
+                    {{ objectMovie.overview }}
                 </div>
             </div>
         </div>
@@ -90,7 +115,7 @@ export default {
         }
     }
     
-    &:hover .card-poster{
+    &:hover .card-poster {
         display: none;
     }
 
