@@ -52,11 +52,11 @@
                         Voto: 
                     </span>
                     <span v-for="(n, index) in 5" :key="index">
-                        <span v-if="voteCeiled === n">
-                            <i class="fas fa-star"></i>
+                        <span v-if="( (voteCeiled > 0) && (voteCeiled < n) )">
+                            <i class="far fa-star"></i>
                         </span>
                         <span v-else>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </span>
                     </span>
                 </div>
