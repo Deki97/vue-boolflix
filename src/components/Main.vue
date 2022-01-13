@@ -1,11 +1,12 @@
 <template>
     <main>
-        <h2>Film</h2>
-        <SingleMovie v-for="(movie, index) in moviesArray" :key="index" :objectMovie="movie" />
+        <div class="container">
+            <h2>Film</h2>
+            <SingleMovie v-for="(movie, index) in moviesArray" :key="index" :objectMovie="movie" />
 
-        <h2>Serie TV</h2>
-        <SingleSerie v-for="(serie, index) in seriesArray" :key="index" :objectSerie="serie" />
-
+            <h2>Serie TV</h2>
+            <SingleSerie v-for="(serie, index) in seriesArray" :key="index" :objectSerie="serie" />
+        </div>
     </main>
 </template>
 
@@ -31,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
+    background-color: #383838;
     h2 {
         margin-left: 10px;
     }
