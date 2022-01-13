@@ -61,11 +61,14 @@
                     </span>
                 </div>
 
-                <div class="overview">
+                <div v-if="objectMovie.overview" class="overview">
                     <span class="bold">
                         Overview:
                     </span>
                     {{ objectMovie.overview }}
+                </div>
+                <div v-else>
+                    Nessuna descrizione disponibile
                 </div>
             </div>
         </div>
