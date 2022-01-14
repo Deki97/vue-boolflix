@@ -32,6 +32,7 @@ export default {
       this.searchMovies();
       this.searchSeries();
     },
+    // Chiamata API per restituire tutti i film contenenti la query passata tramite la searchbar
     searchMovies: function() {
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
@@ -44,6 +45,7 @@ export default {
         this.moviesArrayFiltered = response.data.results;
       });
     },
+    // Chiamata API per restituire tutte le serie TV contenenti la query passata tramite la searchbar
     searchSeries: function() {
       axios.get('https://api.themoviedb.org/3/search/tv', {
         params: {

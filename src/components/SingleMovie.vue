@@ -1,15 +1,19 @@
 <template>
         <div class="single-movie">
+            <!-- Immagine di copertina -->
             <div class="card-poster">
                 <div v-if="objectMovie.poster_path" class="poster">
                     <img :src="this.defaultPath + objectMovie.poster_path"  :alt="objectMovie.name">
                 </div>
+                <!-- Se l'API non ha l'immagine di copertina, faccio apparire un testo sostitutivo -->
                 <div v-else class="no-image">
                     Nessuna immagine disponibile
                 </div>
             </div>
 
+            <!-- Informazioni sul singolo film / serie TV -->
             <div class="card-info">
+                <!-- Titolo -->
                 <div v-if="objectMovie.title" class="title">
                     <span class="bold">
                         Titolo:
@@ -23,6 +27,7 @@
                     {{ objectMovie.name }}
                 </div>
 
+                <!-- Titolo Originale -->
                 <div v-if="objectMovie.original_title" class="original-title">
                     <span class="bold">
                         Titolo Originale:
@@ -36,6 +41,7 @@
                     {{ objectMovie.original_name }}
                 </div>
 
+                <!-- Lingua Originale -->
                 <div class="original-language">
                     <!-- {{ objectMovie.original_language }} -->
                     <span class="bold">
@@ -50,10 +56,12 @@
                     </span>
                 </div>
 
+                <!-- Valutazione media -->
                 <div class="vote-average">
                     <span class="bold">
                         Voto: 
                     </span>
+                    <!-- Conversione della valutazione in stelline -->
                     <span v-for="(n, index) in 5" :key="index">
                         <span v-if="n <= voteCeiled">
                             <i class="fas fa-star"></i>
@@ -64,12 +72,14 @@
                     </span>
                 </div>
 
+                <!-- Trama -->
                 <div v-if="objectMovie.overview" class="overview">
                     <span class="bold">
                         Overview:
                     </span>
                     {{ objectMovie.overview }}
                 </div>
+                <!-- Se l'API non ha la descrizione, faccio apparire un testo sostitutivo -->
                 <div v-else>
                     Nessuna descrizione disponibile
                 </div>
@@ -133,6 +143,7 @@ export default {
         }
     }
     
+    // Effetto hover single-movie
     &:hover .card-poster {
         display: none;
     }

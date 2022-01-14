@@ -2,11 +2,13 @@
     <main>
         <div class="container">
 
+            <!-- Lista di tutti i film restituiti -->
             <h2>Film</h2>
             <div class="movies">
                 <SingleMovie v-for="(movie, index) in moviesArray" :key="index" :objectMovie="movie" />
             </div>
 
+            <!-- Lista di tutte le serie TV restituite -->
             <h2>Serie TV</h2>
             <div class="series">
                 <SingleMovie v-for="(serie, index) in seriesArray" :key="index" :objectMovie="serie" />
