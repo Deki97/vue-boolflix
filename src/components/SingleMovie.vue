@@ -134,7 +134,7 @@ export default {
         color: white;
         background-color: black;
         padding: 20px 10px;
-        overflow: hidden;
+        overflow-y: auto;
 
         .original-language {
             img {
@@ -151,5 +151,7 @@ export default {
     &:hover .card-info {
         display: block;
     }
+
+
 }
 </style>
