@@ -1,9 +1,9 @@
 <template>
-        <div class="single-movie">
+        <div class="single-card">
             <!-- Immagine di copertina -->
             <div class="card-poster">
-                <div v-if="objectMovie.poster_path" class="poster">
-                    <img :src="this.defaultPath + objectMovie.poster_path"  :alt="objectMovie.name">
+                <div v-if="objectCard.poster_path" class="poster">
+                    <img :src="this.defaultPath + objectCard.poster_path"  :alt="objectCard.name">
                 </div>
                 <!-- Se l'API non ha l'immagine di copertina, faccio apparire un testo sostitutivo -->
                 <div v-else class="no-image">
@@ -14,45 +14,45 @@
             <!-- Informazioni sul singolo film / serie TV -->
             <div class="card-info">
                 <!-- Titolo -->
-                <div v-if="objectMovie.title" class="title">
+                <div v-if="objectCard.title" class="title">
                     <span class="bold">
                         Titolo:
                     </span> 
-                    {{ objectMovie.title }}
+                    {{ objectCard.title }}
                 </div>
                 <div v-else>
                     <span class="bold">
                         Titolo:
                     </span> 
-                    {{ objectMovie.name }}
+                    {{ objectCard.name }}
                 </div>
 
                 <!-- Titolo Originale -->
-                <div v-if="objectMovie.original_title" class="original-title">
+                <div v-if="objectCard.original_title" class="original-title">
                     <span class="bold">
                         Titolo Originale:
                     </span>
-                    {{ objectMovie.original_title }}
+                    {{ objectCard.original_title }}
                 </div>
                 <div v-else>
                     <span class="bold">
                         Titolo Originale:
                     </span>
-                    {{ objectMovie.original_name }}
+                    {{ objectCard.original_name }}
                 </div>
 
                 <!-- Lingua Originale -->
                 <div class="original-language">
-                    <!-- {{ objectMovie.original_language }} -->
+                    <!-- {{ objectCard.original_language }} -->
                     <span class="bold">
                         Lingua:
                     </span> 
-                    <span v-if="(objectMovie.original_language === 'en') || (objectMovie.original_language === 'it') || (objectMovie.original_language === 'fr')">
-                        <img :src="require('../assets/img/' +  objectMovie.original_language + '.png')" :alt="objectMovie.original_language">
+                    <span v-if="(objectCard.original_language === 'en') || (objectCard.original_language === 'it') || (objectCard.original_language === 'fr')">
+                        <img :src="require('../assets/img/' +  objectCard.original_language + '.png')" :alt="objectCard.original_language">
                     </span>
 
                     <span v-else>
-                        {{ objectMovie.original_language }}
+                        {{ objectCard.original_language }}
                     </span>
                 </div>
 
@@ -73,11 +73,11 @@
                 </div>
 
                 <!-- Trama -->
-                <div v-if="objectMovie.overview" class="overview">
+                <div v-if="objectCard.overview" class="overview">
                     <span class="bold">
                         Overview:
                     </span>
-                    {{ objectMovie.overview }}
+                    {{ objectCard.overview }}
                 </div>
                 <!-- Se l'API non ha la descrizione, faccio apparire un testo sostitutivo -->
                 <div v-else>
@@ -91,22 +91,22 @@
 <script>
 
 export default {
-    name: 'SingleMovie',
+    name: 'SingleCard',
     data: function() {
         return {
             defaultPath: 'https://image.tmdb.org/t/p/w342',
-            voteCeiled: Math.ceil(this.objectMovie.vote_average / 2)
+            voteCeiled: Math.ceil(this.objectCard.vote_average / 2)
         }
     },
     props: {
-        objectMovie: Object
+        objectCard: Object
     }
 }
 </script>
 
 
 <style lang="scss" scoped>
-.single-movie {
+.single-card {
     margin: 30px 10px;
     border: 2px solid white;
     height: 507px;
@@ -143,7 +143,7 @@ export default {
         }
     }
     
-    // Effetto hover single-movie
+    // Effetto hover single-card
     &:hover .card-poster {
         display: none;
     }

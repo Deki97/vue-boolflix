@@ -5,13 +5,13 @@
             <!-- Lista di tutti i film restituiti -->
             <h2>Film</h2>
             <div class="movies">
-                <SingleMovie v-for="(movie, index) in moviesArray" :key="index" :objectMovie="movie" />
+                <SingleCard v-for="(movie, index) in moviesArray" :key="index" :objectCard="movie" />
             </div>
 
             <!-- Lista di tutte le serie TV restituite -->
             <h2>Serie TV</h2>
             <div class="series">
-                <SingleMovie v-for="(serie, index) in seriesArray" :key="index" :objectMovie="serie" />
+                <SingleCard v-for="(serie, index) in seriesArray" :key="index" :objectCard="serie" />
             </div>
         </div>
     </main>
@@ -19,13 +19,13 @@
 
 
 <script>
-import SingleMovie from './SingleMovie.vue';
+import SingleCard from './SingleCard.vue';
 
 
 export default {
     name: 'Main',
     components: {
-        SingleMovie
+        SingleCard
     },
     props: {
         moviesArray: Array,

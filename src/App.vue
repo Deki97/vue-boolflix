@@ -63,6 +63,6 @@ export default {
 </script>
 
 <style>
-@import './style/general.scss'
+@import './style/general.scss';
 
 </style>
